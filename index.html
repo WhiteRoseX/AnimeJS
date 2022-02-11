@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Document</title>
+  </head>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js
+"></script>
+  <body>
+    <!-- <div class="container">
+        <button class="btn">Check</button>
+        <h1>Title</h1>
+        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Rerum aliquid ipsum magni, cum ab quibusdam maiores voluptas dicta distinctio ut consectetur repudiandae perferendis, provident harum, ipsam veritatis aspernatur. Provident, voluptatum?</p>
+        <input value="0" id="demo">
+        
+    </div> -->
+    <div class="hash1">
+      <h1 class="t1">LUCAS DJAVID</h1>
+      <h1 class="t2">MINDSET.</h1>
+    </div>
+
+    <div class="container-flex">
+      <div class="grid">
+        <div class="cub">0</div>
+        <div class="cub">9</div>
+        <div class="cub">4</div>
+        <div class="cub">1</div>
+        <div class="cub">2</div>
+        <div class="cub">8</div>
+        <div class="cub">5</div>
+        <div class="cub">7</div>
+        <div class="cub">3</div>
+        <div class="cub">5</div>
+        <div class="cub">6</div>
+        <div class="cub">1</div>
+        <div class="cub">2</div>
+        <div class="cub">9</div>
+        <div class="cub">0</div>
+        <div class="cub">4</div>
+        <div class="cub">2</div>
+        <div class="cub">6</div>
+        <div class="cub">7</div>
+        <div class="cub">3</div>
+      </div>
+    </div>
+    <div class="page">
+      <div class="left">
+        <h2>Time to change</h2>
+        <p class="p-left">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla neque
+          numquam voluptas, quod delectus provident qui, ullam suscipit, id illo
+          est? Quod, nihil? Iure velit et reprehenderit totam earum pariatur,
+          dolor, sequi natus dolorum saepe perspiciatis maiores dolore deleniti
+          minus!
+        </p>
+      </div>
+      <div class="right">
+        <img src="cube.svg" alt="svg-cube" class="cube-svg" />
+      </div>
+    </div>
+    <div class="self">
+        <h3 class="clickme">Click me</h3>
+        <div class="white-block"></div>
+    </div>
+    <script>
+      const containerGrid = document.querySelector(".grid");
+
+      window.addEventListener("scroll", () => {
+        if (scrollY > 30) {
+          containerGrid.classList.add("op");
+        } else {
+          containerGrid.classList.remove("op");
+        }
+      });
+
+      const hash3 = document.querySelector(".clickme");
+      console.log(hash3);
+
+      hash3.addEventListener("click", () => {
+        anime({
+          targets: ".self",
+          width: {
+            value: "100%",
+            duration: 2000,
+          },
+        });
+        anime({
+          targets: ".clickme",
+          opacity: {
+            value: 0,
+            duration: 2000,
+          },
+        });
+        hash3.style.cursor = "initial";
+      
+        const whiteBlock = document.querySelector(".white-block");
+
+        function whiteblock() {
+          // whiteBlock.style.display='block';
+          whiteBlock.style.opacity = "1";
+        }
+
+
+        setTimeout(whiteblock, 1000);
+
+        anime({
+          targets: ".white-block",
+          width: {
+              value: '+50%',
+              duration: 2000,
+          },
+          rotateZ: {
+            value: 720,
+            duration: 1000
+          },
+          
+        });
+      });
+
+      anime({
+        targets: ".container",
+        translateX: ["10%", "-10%"],
+        borderRadius: 10,
+        duration: 1000,
+        easing: "linear",
+        bordercolor: "black",
+        direction: "alternate",
+        loop: true,
+      });
+      anime({
+        targets: "#demo",
+        value: [0, 100],
+        duration: 5000,
+        round: 1,
+        loop: true,
+      });
+      anime({
+        targets: ".grid .cub",
+        translateX: anime.stagger(100, {
+          grid: [10, 5],
+          from: "center",
+          axis: "x",
+        }),
+        translateY: anime.stagger(100, {
+          grid: [10, 5],
+          from: "center",
+          axis: "y",
+        }),
+        rotateZ: anime.stagger([0, 300], {
+          grid: [10, 5],
+          from: "center",
+          axis: "x",
+        }),
+        delay: anime.stagger(200, { grid: [10, 5], from: "center" }),
+        easing: "easeInOutQuad",
+        loop: true,
+        direction: "alternate",
+      });
+      anime({
+        targets: ".t1",
+        translateY: {
+          value: 190,
+          duration: 3000,
+        },
+        // rotate: {
+        //     value: 360,
+        //     duration: 2000,
+        // },
+        // scale: {
+        //     value: 2,
+        //     duration: 1600,
+        //     delay: 2000,
+        // },
+        opacity: {
+          value: 0.8,
+          duration: 2000,
+        },
+        rotate: {
+          value: 3,
+          duration: 2000,
+        },
+        // All properties except 'scale' inherit 250ms delay
+      });
+    </script>
+  </body>
+  <script src="main.js"></script>
+</html>
